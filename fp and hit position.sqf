@@ -2,6 +2,7 @@ player addEventHandler ["Fired", {
 	_this spawn 
 	{
 		_output = [];
+		_output pushBack time;
 		_temp = [];
 		_playerPosition = getPosASL player;
 		_projectile = _this select 6;
