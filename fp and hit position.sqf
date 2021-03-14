@@ -11,6 +11,7 @@ player addEventHandler ["Fired", {
 		};
 		_output pushBack _playerPosition;
 		_output pushBack [(_temp select (count _temp) - 1)];
+		_output pushBack time;
 		player globalChat "Impact. Copied.";
 		copyToClipboard str _output;
 	};
