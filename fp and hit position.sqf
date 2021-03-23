@@ -1,8 +1,7 @@
 player addEventHandler ["Fired", {
 	_this spawn 
 	{
-		_output = [];
-		_output pushBack time;
+		_startTime = time;
 		_temp = [];
 		_playerPosition = getPosASL player;
 		_projectile = _this select 6;
@@ -10,11 +9,16 @@ player addEventHandler ["Fired", {
 			_pos = getPosASL _projectile;
 			_temp pushBackUnique _pos;
 		};
-		_output pushBack _playerPosition;
-		_output pushBack (_temp select (count _temp) - 1);
-		_output pushBack time;
-		player globalChat "Impact. Copied.";
-		copyToClipboard str _output;
-		player globalChat str _output;
+		_endTime = time;
+		_impactPosition = (_temp select (count _temp) - 1);
+		player globalChat "Impact.";
+		_range = _playerPosition distance _impactPosition;
+		_2dRange = _playerPosition distance2D _impactPosition;
+		_playerAlt = _playerPosition select 2;
+		_impactAlt = _impactPosition select 2;
+		_travelTime = _endTime - _startTime;
+		_msg = '{"travel_time": ' + str _travelTime + ', "2d range": ' + str _2dRange + ', "3d range": ' + str _range + ', "end alt": ' + str _impactAlt + ', "start alt": ' + str _playerAlt + ', "ele": XX }';
+		copyToClipboard _msg;
+		player globalChat _msg;
 	};
 }];
