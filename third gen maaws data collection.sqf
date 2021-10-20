@@ -8,6 +8,7 @@ player addEventHandler ["Fired", {
 		_prevAlt = -99;
 		_trajectoryArray = [];
 		_playerPosition = getPosASL player;
+		_playerPosition pushBack _initialTime;
 		_trajectoryArray pushBack _playerPosition;
 		player globalChat "Fired";
 		waitUntil {
