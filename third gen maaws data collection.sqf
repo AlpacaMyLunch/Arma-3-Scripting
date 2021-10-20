@@ -26,6 +26,6 @@ player addEventHandler ["Fired", {
 		_endTime = time;
 		copyToClipboard str _trajectoryArray;
 		player globalChat "Impact after " + str(_endTime - _initialTime) + " seconds.";
-		player addItemToBackpack "MRAWS_HEAT_F";
+		player addItemToBackpack "R_MRAAWS_HE_F";
 	};
 }];
