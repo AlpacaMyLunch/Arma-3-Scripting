@@ -8,6 +8,7 @@ player addEventHandler ["Fired", {
 		_prevAlt = -99;
 		_trajectoryArray = [];
 		_playerPosition = getPosASL player;
+		_playerPosition pushBack time;
 		_trajectoryArray pushBack _playerPosition;
 		_cam = "camera" camCreate (position player);
 		_cam cameraEffect ["External", "Back"];
@@ -21,6 +22,7 @@ player addEventHandler ["Fired", {
 			_pos pushBack _time;
 			_trajectoryArray pushBackUnique _pos;
 			_alt = _pos select 2;
+			player globalChat str _alt;
 			if (_alt < _prevAlt) then {_falling = true} else {_prevAlt = _alt};
 			_camPos = _travelCameraPos;
 			_camCommitSpeed = 0;
