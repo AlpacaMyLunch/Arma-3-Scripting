@@ -42,7 +42,7 @@ player addEventHandler ["Fired", {
 		_cam cameraEffect ["Terminate", "Back"];
 		copyToClipboard str _trajectoryArray;
 		camDestroy _cam;
-		// player addItemToBackpack "MRAWS_HE_F";
+		player addItemToBackpack "MRAWS_HE_F";
 		player globalChat str _lastPos;
 		
 		_markerName = str time;
